@@ -25,7 +25,7 @@ SECRET_KEY = '8f2$#hkkqzcj&@@@1o&px#8llkz6*l!frh6$*e9%+n^h+&a*f-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts'
+    'accounts',
+    'django_forms_bootstrap',
+    
 ]
 
 MIDDLEWARE = [
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'property.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,9 +72,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'property.wsgi.application'
 
-AUTHENTICATION_BACKENDS = [ 'django.contrib.auth.backends.ModelBackend',
-					        'accounts.backends.CaseInsensitiveAuth',
-					      ]
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend', 
+                           'accounts.backends.CaseInsensitiveAuth']
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
