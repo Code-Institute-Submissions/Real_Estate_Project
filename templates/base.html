@@ -1,48 +1,111 @@
-{% load staticfiles %}
-
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <title>{% block page_title %}{% endblock %}</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title>{% block page_title %}{% endblock %}</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
+
 <body>
-    <nav class="navbar navbar-default">
-        <ul class="nav navbar-nav">
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'profile' %}">Profile</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-                      
-            {% else %}
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'registration' %}">Register</a></li>
-            
-            {% endif %}
-        </ul>
-    </nav>
 
-     <h1>
-        {% block page_heading %}{% endblock %}
-    </h1>
-    
-    {% if messages %}
+	<nav class="topo navbar navbar-expand-lg navbar-light">
+		<a class="navbar-brand"
+			href="{% url 'index' %}"><img src="{% static 'images/logo1.png' %}" class="img-fluid" ></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="alfa navbar-nav">
+					{% if user.is_authenticated %}
 
-    <div>
-        {% for message in messages %} {{ message }} {% endfor %}
-    </div>
-    
-    {% endif %}
-    
-    {% block content %}
-    
-    {% endblock %}
-    
+					<a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+					<a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+
+					{% else %}
+					<a class="nav-item nav-link" href="@buy">Buy</a>
+					<a class="nav-item nav-link" href="@rent">Rent</a>
+					<a class="nav-item nav-link" href="@agents">Estate Agents</a>
+					<a class="nav-item nav-link" href="{% url 'login' %}">Sign In</a>
+					<a class="nav-item nav-link" href="{% url 'registration' %}">Sign Up</a>
+					{% endif %}
+				</div>
+			</div>
+	</nav>
+	<sectoin class="main-photo">
+		<div>
+			<img src="{% static 'images/section-photo.jpeg' %}" class="img-fluid photo" >
+		</div>
+
+			<section class="main-search">
+				<div class="container">
+					<div class="main-search__container">
+						<section class="listing-search">
+							<form action="index.html" method="get" class="listing-search__form">
+								{% csrf_token %}
+								<div class="row">
+									                                    
+                                    <div class="col-sm-3">
+										                                       
+                                        <div class="input-group mb-3">
+											<select class="custom-select" id="inputGroupSelect01">
+                                                <option selected>Choose...</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+										</div>
+
+									</div>
+									<div class="col-sm-3">
+                                        <div class="input-group mb-3">
+											<select class="custom-select" id="inputGroupSelect02">
+                                                <option selected>Choose...</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+										</div>
+                                    
+                                    </div>
+									<div class="col-sm-3">
+                                        <div class="input-group mb-3">
+											<select class="custom-select" id="inputGroupSelect03">
+                                                <option selected>Choose...</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+										</div>
+                                                                        
+                                    </div>
+									<div class="col-sm-3">
+
+                                        <button>Search</button>
+                                        
+                                    </div>
+
+
+								</div>
+							</form>
+						</section>
+					</div>
+				</div>
+			</section>
+	</sectoin>
+
+
+	{% block content %}
+
+	{% endblock %}
+
 </body>
+
 </html>

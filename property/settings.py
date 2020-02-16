@@ -72,8 +72,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'property.wsgi.application'
 
-AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend', 
-                           'accounts.backends.CaseInsensitiveAuth']
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
+
+# 'accounts.backends.CaseInsensitiveAuth'
+# shoud be inside authentication_backends but its giving me error 
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -123,7 +125,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage" 

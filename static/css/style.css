@@ -1,0 +1,24 @@
+
+/*----------------NAVBAR ------------------*/
+
+.topo {
+    background-color: #01082b;
+    margin: 0px;
+    padding: 0px;
+    height: auto;
+    
+    }
+
+.navbar-light .navbar-nav .nav-link {
+    color: #B89F57;
+    
+    }
+
+
+/*----------------SECTION PHOTO -------------------------*/
+
+.main-photo {
+margin: 0px;
+padding: 0px;
+
+}

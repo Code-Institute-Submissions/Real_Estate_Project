@@ -14,6 +14,24 @@
 
 {% block content %}
 
+  <p>this will be the user page to edit, delete, add new properties.</p>
   <p>{{ profile.email}}</p>
 
 {% endblock %}
+
+<!-----------------------------------------------------
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+                      
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'registration' %}">Register</a></li>
+            
+            {% endif %}
+        </ul>
+    </nav>
+
+---------------------------------------------------------------------------->
