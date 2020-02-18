@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'django_forms_bootstrap',
-    
+    'signup',
+    'buy_package',   
 ]
 
 MIDDLEWARE = [

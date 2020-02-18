@@ -15,11 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from accounts.views import index
 from accounts import urls as urls_accounts
+from signup.views import signup
+from buy_package.views import buy_package
 
 
-urlpatterns = [
+urlpatterns = [    
     
     url(r'^admin/', admin.site.urls),
+    url(r'^$', index, name='index'),
     url(r'^accounts/', include(urls_accounts)),
+    url(r'^signup/', signup, name="signup"),
+    url(r'^buy_package/', buy_package, name="buy_package"),
+
 ]

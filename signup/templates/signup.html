@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block page_title %} SignUp {% endblock %}
+
+
+{% block content %}
+
+<div class="container signup">
+	<div class="row">
+		<div class="plan col-sm-12"> <strong> Agencies Package </strong> </div>
+		
+        <div class="price col-sm-12"> <strong> £299/Month </strong></div>
+
+		
+		<div class="items col-sm-12">
+			
+            <p><strong>Package Type:</strong> Unlimited Submissions</p>
+			<p><strong>Listing duration:</strong> Until Sold and Deleted by the Agencies </p>
+			
+            <p>Listings submitted with this package will be automatically featured</p>
+            <p>The agencies will have access to a Agencies Properties panel where the properties <br> can be added, edited,
+               and deleted from our Website</p>
+			
+		</div>
+
+        <div class="sign-btn col-sm-12">
+            <a class="btn butt" href="{% url 'buy_package' %}" role="button">Buy Package</a>
+        </div>
+
+	</div>
+</div>
+
+
+{% endblock%}

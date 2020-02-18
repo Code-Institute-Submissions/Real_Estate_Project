@@ -1,9 +1,8 @@
 from django.shortcuts import render
 
-
 # Create your views here.
 
 
-def index(request):
+def buy_package(request):
     '''Return html File'''
-    return render(request, "index.html")
+    return render(request, "buy_package.html")
