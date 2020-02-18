@@ -6,3 +6,4 @@ from django.shortcuts import render
 def buy_package(request):
     '''Return html File'''
     return render(request, "buy_package.html")
+
