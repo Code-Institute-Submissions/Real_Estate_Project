@@ -102,3 +102,22 @@
     border-radius: 35px;
 
 }
+
+form.form-inline {
+    display: contents;
+        
+}
+
+.choose {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+    }
+
+.plan1 {
+    padding-bottom: 5px;
+    padding-top: 20px;
+    border-top: 1px solid #B89F57;
+    font-size: 25px;
+    
+}

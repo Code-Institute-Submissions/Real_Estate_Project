@@ -9,30 +9,33 @@
 <div class="container cart">
 	<div class="row">
 
-		<div class="col-sm-12">
-			<div class="plan col-sm-12"> <strong> Checkout </strong> </div>
+		
+		<div class="plan col-sm-12">
+            <strong> Checkout </strong>
+        </div>
 
-		</div>
+		
 
-		<div class=" col-sm-12">
-			<p> Agencies Package </p>
-		</div>
-
-
+		<div class="price col-sm-12">
+            <strong> £{{ price }}/Month </strong>
+        </div>
 
 
 		<form class="form-inline" method="POST" action="{% url 'buy_package' %}">
 			{% csrf_token %}
-			<div class="col-sm-12">
-				{{ price }}
-				<div class="input-group">
-					<input id="quantity" name="quantity" value="1" type="number" min="0" max="12" class="form-control">
-					<button type="submit" class="btn btn-primary">Amend</button>
-				</div>
-				{{ total }}
+			<div class="choose col-sm-12">
+				<p> Months of Subscription: </p>
+				<input id="quantity" name="quantity" value="1" type="number" min="0" max="12" class="form-control">
+				<button type="submit" class="btn butt">Amend</button>
+								
 			</div>
 		</form>
-
+        
+        <div class="plan1 col-sm-12">
+            
+            Amount Payble: <strong>£{{ total }}.00</strong> 
+            <p style="font-size:12px;"> for {{ quantity }} Months</p>
+        </div>
 
 
 
