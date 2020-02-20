@@ -9,24 +9,36 @@
 <div class="container cart">
 	<div class="row">
 
-        <div class="col-sm-12">
-            <div class="plan col-sm-12"> <strong> Checkout </strong> </div>
+		<div class="col-sm-12">
+			<div class="plan col-sm-12"> <strong> Checkout </strong> </div>
 
-        </div>
+		</div>
 
-        <div class=" col-sm-12">
-            <p> Agencies Package </p>
-        </div>
-	
-        <div class=" col-sm-12">
-         
-            <p> Total: £299 </p>
-                              
-        </div>
-        
-        <div class="sign-btn col-sm-12">
-        <a href="#" class="btn butt" role="button">Checkout</a>
-        </div>
+		<div class=" col-sm-12">
+			<p> Agencies Package </p>
+		</div>
+
+
+
+
+		<form class="form-inline" method="POST" action="{% url 'buy_package' %}">
+			{% csrf_token %}
+			<div class="col-sm-12">
+				{{ price }}
+				<div class="input-group">
+					<input id="quantity" name="quantity" value="1" type="number" min="0" max="12" class="form-control">
+					<button type="submit" class="btn btn-primary">Amend</button>
+				</div>
+				{{ total }}
+			</div>
+		</form>
+
+
+
+
+		<div class="sign-btn col-sm-12">
+			<a href="#" class="btn butt" role="button">Checkout</a>
+		</div>
 
 	</div>
 

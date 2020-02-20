@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^accounts/', include(urls_accounts)),
     url(r'^signup/', signup, name="signup"),
     url(r'^buy_package/', buy_package, name="buy_package"),
+    
 
 ]
