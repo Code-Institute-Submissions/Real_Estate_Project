@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'accounts',
     'django_forms_bootstrap',
     'signup',
-    'buy_package',   
+    'buy_package',
+    'payment',   
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,11 @@ MEDIA_URL = '/media/'
 
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage" 
+
+
+#EXEMPLO:
+# STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE')
+# STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET')
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_Y1mIa73tVJYgk2JjPSc2PG1100gu1ktcE9'
+STRIPE_SECRET_KEY = 'sk_test_5gWqQKCSAbJSH9nQqePnv6NF00za7TGYXM'

@@ -34,13 +34,13 @@
         <div class="plan1 col-sm-12">
             
             Amount Payble: <strong>£{{ total }}.00</strong> 
-            <p style="font-size:12px;"> for {{ quantity }} Months</p>
+            <p style="font-size:12px;"> <strong>For:</strong> {{ quantity }} Months</p>
         </div>
 
 
 
 		<div class="sign-btn col-sm-12">
-			<a href="#" class="btn butt" role="button">Checkout</a>
+			<a href="{% url 'payment' %}" class="btn butt" role="button">Payment</a>
 		</div>
 
 	</div>
