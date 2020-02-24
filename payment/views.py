@@ -3,12 +3,14 @@ from django.conf import settings
 import stripe
 from .forms import PaymentForm, PackagePaymentForm
 from django.utils import timezone
-from buy_package.views import buy_package
 from django.contrib import messages
+from buy_package.views import buy_package
+
+
 
 
 # OUR VIEW REQUIRES A STRIPE API KEY TO WORK / we nedd to import settings and stripe.
-stripe.api_key = settings.STRIPE_SECRET_KEY
+stripe.api_key = settings.STRIPE_SECRET
 
 
 def payout(request):
@@ -26,19 +28,16 @@ def payout(request):
             payment = payment_form.save(commit=False)
             payment.date = timezone.now()
             payment.save()
-        
-            # buy_package = request.session.get('buy_package', {})
-            total = buy_package.total
-            total.save()
-            
+                
+            total = request.session.get('buy_package', {'total': total})
+                               
             # try except will create a customer charge. So that's using Stripe's in-built API.
             try:
                 customer = stripe.Charge.create(
                     # amount will always need to be multipy * 100 in stripe because uses penny(cents).
                     amount=int(total * 100),
-                    currency="GBP",
-                    # the description allow us to see who pay us in stripe dashboard.
-                    description=request.full_name,
+                    currency="GBP",   
+                    description=request.user.email,          
                     # the stripe id also show us the id hidden in the forms.py/payment.
                     card=package_payment_form.cleaned_data['stripe_id']
                 )
@@ -65,4 +64,4 @@ def payout(request):
     
     return render(request, "payment.html", {"payment_form": payment_form, 
                                             "package_payment_form": package_payment_form, 
-                                            "publishable": settings.STRIPE_PUBLISHABLE_KEY})
+                                            "publishable": settings.STRIPE_PUBLISHABLE})

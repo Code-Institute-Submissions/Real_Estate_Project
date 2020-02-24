@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'signup',
     'buy_package',
-    'payment',   
+    'payment',  
 ]
 
 MIDDLEWARE = [
@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'buy_package.contexts.buy_package_contents'
             ],
         },
     },
@@ -74,7 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'property.wsgi.application'
 
-AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend', 'accounts.backends.CaseInsensitiveAuth']
 
 # 'accounts.backends.CaseInsensitiveAuth'
 # shoud be inside authentication_backends but its giving me error 
@@ -142,5 +143,5 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 # STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE')
 # STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET')
 
-STRIPE_PUBLISHABLE_KEY = 'pk_test_Y1mIa73tVJYgk2JjPSc2PG1100gu1ktcE9'
-STRIPE_SECRET_KEY = 'sk_test_5gWqQKCSAbJSH9nQqePnv6NF00za7TGYXM'
+STRIPE_PUBLISHABLE = 'pk_test_Y1mIa73tVJYgk2JjPSc2PG1100gu1ktcE9'
+STRIPE_SECRET = 'sk_test_5gWqQKCSAbJSH9nQqePnv6NF00za7TGYXM'

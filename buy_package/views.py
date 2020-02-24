@@ -1,13 +1,61 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 
 # Create your views here.
 
 
 def buy_package(request):
-    '''Return html File'''
+    return render(request, 'buy_package.html')
 
-    ''' Simple multiply func. that allow user to choose how many months they want to subscribe for! '''
-    ''' In order to work our form input we needed to request.POSt.get('input name') '''
+
+def add_to_buy_package(request, id):
+    """Add a quantity of the specified product to the cart"""
+    quantity = int(request.POST.get('quantity'))
+
+    cart = request.session.get('cart', {})
+    cart[id] = cart.get(id, quantity)
+
+    request.session['cart'] = cart
+    return redirect(reverse('buy_package'))
+
+
+def adjust_buy_package(request, id):
+    """
+    Adjust the quantity of the specified product to the specified
+    amount
+    """
+    quantity = int(request.POST.get('quantity'))
+    cart = request.session.get('cart', {})
+
+    if quantity > 0:
+        cart[id] = quantity
+    else:
+        cart.pop(id)
+    
+    request.session['cart'] = cart
+    return redirect(reverse('buy_package'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+''' 
+def buy_package(request):
+   
     if request.method == 'POST':
         price = 299
         quantity = int(request.POST.get('quantity'))
@@ -17,5 +65,6 @@ def buy_package(request):
     else:
         return render(request, "buy_package.html", {'price': 299, 'total': 299})
 
+'''
 
 

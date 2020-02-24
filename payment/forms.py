@@ -13,8 +13,7 @@ class PackagePaymentForm(forms.Form):
     cvv = forms.CharField(label='Security code (CVV)', required=False)
     expiry_month = forms.ChoiceField(label='Expiry Month', choices=MONTH_CHOICES, required=False)
     expiry_year = forms.ChoiceField(label='Expiry Year', choices=YEAR_CHOICES, required=False)
-    # NEED TO USE THE STRIPE ID AS WELL BUT WE ALSO NEED TO HIDE THAT ID COMING FROM STRIPE.
-    stripe_id = forms.CharField(widget=forms.HiddenInput)
+    stripe_id = forms.CharField(widget=forms.HiddenInput, required=False)
 
 
 # THIS IS A PAYMENT MODEL CREATED IN THE PAYMENT/MODELS.PY THAT CONTAIS ALL THOSE INFORMATIONS.  

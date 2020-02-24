@@ -8,33 +8,46 @@
 
 <div class="container signup">
 	<div class="row">
+
+		{% for sign in signup %}
 		<div class="plan col-sm-12">
-            <strong> Agencies Package </strong> 
-        </div>
-		
-        
-        <div class="price col-sm-12"> 
-            <strong> £{{ price }}/Month </strong>
-        </div>
-        
-        
-		
-		<div class="items col-sm-12">
-			
-            <p><strong>Package Type:</strong> Unlimited Submissions</p>
-			<p><strong>Listing duration:</strong> Until Sold, Rent or Deleted by Agencies </p>
-			
-            <p>Listings submitted with this package will be automatically featured</p>
-            <p>The agencies will have access to a Agencies Properties panel where the properties <br> can be added, edited,
-               and deleted from our Website</p>
-			
+			<strong> {{ sign.name }} </strong>
 		</div>
 
- 
-        <div class="sign-btn col-sm-12">
-            <a class="btn butt" href="{% url 'buy_package' %}" role="button">Buy Package</a>
-        </div>
 
+		<div class="price col-sm-12">
+			<strong> £{{ sign.price }}/Month </strong>
+		</div>
+
+
+
+		<div class="items col-sm-12">
+
+			<p><strong>Package Type:</strong> Unlimited Submissions</p>
+			<p><strong>Listing duration:</strong> Until Sold, Rent or Deleted by Agencies </p>
+
+			<p>Listings submitted with this package will be automatically featured</p>
+			<p>The agencies will have access to a Agencies Properties panel where the properties <br> can be added, edited,
+               and deleted from our Website</p>
+
+		</div>
+
+		<div class="choose col-sm-12">
+			<form method="post" action="{% url 'add_to_buy_package' sign.id %}">
+				{% csrf_token %}
+
+                <p><strong> Choose Your Months Subscription: </strong></p>
+			    <div class="qnty">
+				    <input name="quantity" type="number" min="1" max="12" class="form-control" placeholder="Choose Months" value="1">
+                </div>
+                
+			    <div class="sign-btn">
+				    <button class="btn butt" type="submit">Buy Package</button>
+			    </div>
+			</form>            
+		</div>
+
+		{% endfor %}
 	</div>
 </div>
 

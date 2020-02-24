@@ -52,12 +52,18 @@
     text-align: center;
     background-color: #01082b;
     color: #B89F57;
-    margin-top: 50px; 
+    margin-top: 50px;
+    margin-bottom: 50px; 
     width: 60%;
-    border-radius: 35px;
+    border-radius: 35px;  
     
-    
-    
+}
+
+@media (max-width: 769px){
+    .signup {
+        width: 80%;
+    }
+
 }
 
 .plan{
@@ -72,7 +78,7 @@
     padding-bottom: 30px;
     padding-top: 30px;
     border: 1px solid #B89F57;
-    font-size: 28px;
+    font-size: 30px;
     background-color: lavender;
   
 
@@ -86,9 +92,18 @@
     font-size: 15px;
 }
 
+.choose {
+     border-top: 1px solid #B89F57;
+}
+
+.qnty {
+    width: 50%;
+    display: inline-block;
+}
+
 .sign-btn {
-    padding-bottom: 15px;
-    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-top: 20px;
 }
 
 /*-----------------------BUY_PACKAGE.HTML---------------*/
