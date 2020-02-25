@@ -75,7 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'property.wsgi.application'
 
-AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend', 'accounts.backends.CaseInsensitiveAuth']
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
 
 # 'accounts.backends.CaseInsensitiveAuth'
 # shoud be inside authentication_backends but its giving me error 

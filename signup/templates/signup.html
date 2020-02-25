@@ -34,11 +34,10 @@
 
 		<div class="choose col-sm-12">
 			<form method="post" action="{% url 'add_to_buy_package' sign.id %}">
-				{% csrf_token %}
-
-                <p><strong> Choose Your Months Subscription: </strong></p>
+				{% csrf_token %} 
+                               
 			    <div class="qnty">
-				    <input name="quantity" type="number" min="1" max="12" class="form-control" placeholder="Choose Months" value="1">
+				    <input name="quantity" type="hidden" min="1" max="12" class="form-control" placeholder="Choose Months" value="1">
                 </div>
                 
 			    <div class="sign-btn">
@@ -53,3 +52,5 @@
 
 
 {% endblock %}
+
+

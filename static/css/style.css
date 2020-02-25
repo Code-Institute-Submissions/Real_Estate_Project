@@ -102,8 +102,7 @@
 }
 
 .sign-btn {
-    padding-bottom: 5px;
-    padding-top: 20px;
+    padding-bottom: 25px;
 }
 
 /*-----------------------BUY_PACKAGE.HTML---------------*/
@@ -118,24 +117,31 @@
 
 }
 
-form.form-inline {
-    display: contents;
-        
+.fix{
+    width: 50%;
+    height: 36px;
+    
 }
 
-.choose {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    
-    }
-
-.plan1 {
-    padding-bottom: 10px;
-    padding-top: 25px;
+.pay{
     border-top: 1px solid #B89F57;
-    font-size: 25px;
+    padding: 15px;
     
 }
+
+.sub{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    vertical-align: unset;
+}
+
+.total {
+    font-size: 25px;
+}
+
 
 
 /*-----------------PAYMENT.HTML------------------*/
