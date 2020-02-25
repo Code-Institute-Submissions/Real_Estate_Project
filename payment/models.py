@@ -1,4 +1,5 @@
 from django.db import models
+from signup.models import Signup
 
 
 class Payment(models.Model):
@@ -15,4 +16,11 @@ class Payment(models.Model):
         return "{0}-{1}-{2}".format(self.id, self.date, self.full_name)
 
 
+class OrderLineItem(models.Model):
+    payment = models.ForeignKey(Payment, null=False)
+    signup = models.ForeignKey(Signup, null=False)
+    quantity = models.IntegerField(blank=False)
 
+    def __str__(self):
+        return "{0} {1} @ {2}".format(
+            self.quantity, self.signup.name, self.signup.price)

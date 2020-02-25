@@ -1,15 +1,13 @@
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 import stripe
 from .forms import PaymentForm, PackagePaymentForm
 from django.utils import timezone
 from django.contrib import messages
-from buy_package.views import buy_package
+from signup.models import Signup
+from .models import OrderLineItem
 
 
-
-
-# OUR VIEW REQUIRES A STRIPE API KEY TO WORK / we nedd to import settings and stripe.
 stripe.api_key = settings.STRIPE_SECRET
 
 
@@ -29,17 +27,30 @@ def payout(request):
             payment.date = timezone.now()
             payment.save()
                 
-            total = request.session.get('buy_package', {'total': total})
+            cart = request.session.get('cart', {})
+            total = 0
+            for id, quantity in cart.items():
+                signup = get_object_or_404(Signup, pk=id)
+                total += quantity * signup.price
+                order_line_item = OrderLineItem(
+                    payment=payment,
+                    signup=signup,
+                    quantity=quantity
+                )
+                order_line_item.save()
                                
             # try except will create a customer charge. So that's using Stripe's in-built API.
             try:
                 customer = stripe.Charge.create(
                     # amount will always need to be multipy * 100 in stripe because uses penny(cents).
                     amount=int(total * 100),
-                    currency="GBP",   
-                    description=request.user.email,          
+                    currency="gbp",
+                    source="tok_mastercard",
+                    
+                    #description=Payment.full_name                
                     # the stripe id also show us the id hidden in the forms.py/payment.
-                    card=package_payment_form.cleaned_data['stripe_id']
+                    # card=payment_form.cleaned_data['stripe_id']
+                    # payment_form from JS.
                 )
             # the stripe itself will do all the payment prossess check and security, but it's needed to send a user a message
             # if anything goes wrong, as declined payment also if payment is accept or any other issue.
@@ -48,7 +59,7 @@ def payout(request):
 
             if customer.paid:
                 messages.error(request, "Thank you, You have purchased our Package!")
-                return redirect(reverse('create_user'))
+                return render(request, 'create_user.html')
 
             else:
                 messages.error(request, "Unable to take payment")
@@ -64,4 +75,5 @@ def payout(request):
     
     return render(request, "payment.html", {"payment_form": payment_form, 
                                             "package_payment_form": package_payment_form, 
-                                            "publishable": settings.STRIPE_PUBLISHABLE})
+                                            "publishable": settings.STRIPE_PUBLISHABLE
+                                            })

@@ -136,12 +136,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
-MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage" 
-
-
-#EXEMPLO:
+# EXEMPLO:
 # STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE')
 # STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET')
 
-STRIPE_PUBLISHABLE = 'pk_test_Y1mIa73tVJYgk2JjPSc2PG1100gu1ktcE9'
-STRIPE_SECRET = 'sk_test_5gWqQKCSAbJSH9nQqePnv6NF00za7TGYXM'
+STRIPE_PUBLISHABLE = 'pk_test_3qIFbwO8Gw2wRKGU9ddVtAp000T9tGDRYE'
+STRIPE_SECRET = 'sk_test_dkquWlrCilci7CJ46CjikliO00qdSkXcTA'
+
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage" 
