@@ -1,74 +1,92 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block page_title %}  Home  {% endblock %} 
+{% block page_title %} Home {% endblock %}
 
 
 {% block content %}
 <div class="container-fluid main-search">
-		<div class="main-search__container">
-			<section class="listing-search">
-				<form action="index.html" method="get" class="listing-search__form">
-					{% csrf_token %}
-					<div class="row">
-						<div class="col-sm-3">
+	<div class="main-search__container">
+		<section class="listing-search">
+			<form action="index.html" method="get" class="listing-search__form">
+				{% csrf_token %}
+				<div class="row">
+					<div class="col-sm-3">
 
-							<div class="input-group mb-3">
-								<select class="custom-select" id="inputGroupSelect01">
+						<div class="input-group mb-3">
+							<select class="custom-select" id="inputGroupSelect01">
                                                 <option selected>Choose...</option>
                                                 <option value="1">One</option>
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
                                 </select>
-							</div>
-
 						</div>
-						<div class="col-sm-3">
-							<div class="input-group mb-3">
-								<select class="custom-select" id="inputGroupSelect02">
-                                                <option selected>Choose...</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                </select>
-							</div>
-
-						</div>
-						<div class="col-sm-3">
-							<div class="input-group mb-3">
-								<select class="custom-select" id="inputGroupSelect03">
-                                                <option selected>Choose...</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                </select>
-							</div>
-
-						</div>
-						<div class="col-sm-3">
-
-							<button type="submit" class="butt btn btn-block">Search</button>
-
-						</div>
-
 
 					</div>
-				</form>
-			</section>
-		</div>
+					<div class="col-sm-3">
+						<div class="input-group mb-3">
+							<select class="custom-select" id="inputGroupSelect02">
+                                                <option selected>Choose...</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                </select>
+						</div>
+
+					</div>
+					<div class="col-sm-3">
+						<div class="input-group mb-3">
+							<select class="custom-select" id="inputGroupSelect03">
+                                                <option selected>Choose...</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                </select>
+						</div>
+
+					</div>
+					<div class="col-sm-3">
+
+						<button type="submit" class="butt btn btn-block">Search</button>
+
+					</div>
+
+
+				</div>
+			</form>
+		</section>
 	</div>
+</div>
 
 
-	<section class="main-photo">
-		<div>
-			<img src="{% static 'images/section-photo1.jpeg' %}" class="img-fluid photo">
+<section class="main-photo">
+	<div>
+		<img src="{% static 'images/section-photo1.jpeg' %}" class="img-fluid photo">
 
 
 		</div>
-	</section>
+</section>
 
 
-esta sera a pagina principal??
-accounts/index?
+
+
+
+<div class="container signup">
+      {% for property in lists %}
+
+            <div class="col-sm-12">
+            {{ property.title }}
+            </div>
+            {{ property.buy }}
+            {{ property.rent }}
+            {{ property.price }}
+            {{ property.photos }}
+            
+            {{ property.user }}
+            
+            
+    {% endfor %}
+
+</div>
 
 {% endblock %}

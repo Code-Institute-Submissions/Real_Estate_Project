@@ -3,14 +3,17 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from accounts.forms import UserLoginForm,  UserRegistrationForm
 from django.contrib.auth.models import User
-
+from listing.models import Listing
+from django.utils import timezone
 # Create your views here.
 
 
 def index(request):
     '''Return html File'''
-    return render(request, "index.html")
-
+    lists = Listing.objects.filter(published_date__lte=timezone.now()
+    ).order_by('-published_date')
+    return render(request, "index.html", {'lists': lists})
+    
 
 @login_required
 def logout(request):
@@ -31,7 +34,6 @@ def login(request):
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password'])
            
-
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully logged in!")

@@ -153,3 +153,20 @@ legend {
     margin-top: 15px;
     
 }
+
+/*---------------------REGISTRATION.HTML-------------*/
+
+.reg{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+@media (max-width: 769px){
+    .reg{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+}

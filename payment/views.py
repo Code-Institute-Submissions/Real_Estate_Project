@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.conf import settings
 import stripe
 from .forms import PaymentForm, PackagePaymentForm
@@ -6,6 +6,8 @@ from django.utils import timezone
 from django.contrib import messages
 from signup.models import Signup
 from .models import OrderLineItem
+
+# from django.utils.crypto import get_random_string
 
 
 stripe.api_key = settings.STRIPE_SECRET
@@ -47,7 +49,7 @@ def payout(request):
                     currency="gbp",
                     source="tok_mastercard",
                     
-                    #description=Payment.full_name                
+                    # description=Payment.full_name                
                     # the stripe id also show us the id hidden in the forms.py/payment.
                     # card=payment_form.cleaned_data['stripe_id']
                     # payment_form from JS.
@@ -57,9 +59,16 @@ def payout(request):
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
 
+            # the original idea for this part is (if customer.paid:):
+            # 1 - generate a code display to user to the user can match in the register page. 
+            # /or/
+            # 2 - request a user email address and send a email with the register link (sha and salted in the dns)
+            # also need some code to be uesed once to prevent anyone to get the link and add to the website.
+
             if customer.paid:
                 messages.error(request, "Thank you, You have purchased our Package!")
-                return render(request, 'create_user.html')
+                request.session['cart'] = {}
+                return redirect(reverse('registration'))
 
             else:
                 messages.error(request, "Unable to take payment")

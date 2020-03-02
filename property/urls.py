@@ -20,7 +20,10 @@ from accounts import urls as urls_accounts
 from signup.views import signup
 from buy_package import urls as urls_buy_package
 from payment.views import payout
+from listing import urls as urls_listing
 
+from django.views import static
+from .settings import MEDIA_ROOT
 
 urlpatterns = [    
     
@@ -30,4 +33,8 @@ urlpatterns = [
     url(r'^signup/', signup, name="signup"),
     url(r'^buy_package/', include(urls_buy_package)),
     url(r'^payout/', payout, name="payment"),
+    url(r"^listing", include(urls_listing)),
+
+    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
+
 ]
