@@ -25,6 +25,8 @@ from listing import urls as urls_listing
 from django.views import static
 from .settings import MEDIA_ROOT
 
+
+
 urlpatterns = [    
     
     url(r'^admin/', admin.site.urls),
@@ -33,7 +35,7 @@ urlpatterns = [
     url(r'^signup/', signup, name="signup"),
     url(r'^buy_package/', include(urls_buy_package)),
     url(r'^payout/', payout, name="payment"),
-    url(r"^listing", include(urls_listing)),
+    url(r"^listing/", include(urls_listing)),
 
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 

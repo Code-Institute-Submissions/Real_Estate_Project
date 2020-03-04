@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% load staticfiles %}
 
 {% block page_title %} Home {% endblock %}
@@ -67,26 +68,42 @@
 		</div>
 </section>
 
+<section>
+	<div class="container card-deck">
 
-
-
-
-<div class="container signup">
-      {% for property in lists %}
-
-            <div class="col-sm-12">
-            {{ property.title }}
-            </div>
-            {{ property.buy }}
-            {{ property.rent }}
-            {{ property.price }}
-            {{ property.photos }}
+		{% for property in lists %}
+		<div class="card col-sm-12 col-md-4 col-lg-4">
             
-            {{ property.user }}
-            
-            
-    {% endfor %}
+            <img src="/media/{{ property.photos }}" class="card-img-top" alt="Card image cap" />
 
-</div>
+			<div class="card-body col-sm-12 description">
+			
+                <div class="card-text">
+				    <p>{{ property.title }}</p>
+                    <p> £{{ property.price }} pmc</p>   				
+                   
+				</div>
 
+                <div class="card-text">
+					<p><i class="fa fa-road"> {{ property.address }}, {{ property.city }}, {{ property.postcode }}</i></p>
+				</div>
+
+
+				<div class="card-text">
+                    <p>
+					<i class="fa fa-bed"> {{ property.bedrooms }} Beds </i> &nbsp; 
+					<i class="fa fa-bath"> {{ property.bathrooms }} Baths </i> &nbsp; 
+					<i class="fa fa-tv"> {{ property.rooms }} Room </i>
+                    </p>
+				</div>   
+
+			</div>
+
+                <a href="{% url 'property_detail' property.id %}" class="btn butt">Details</a>    
+		</div>
+
+			{% endfor %}
+
+	</div>
+</section>
 {% endblock %}

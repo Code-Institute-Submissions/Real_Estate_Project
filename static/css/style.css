@@ -1,3 +1,6 @@
+body{
+    font-family: 'Oxygen', sans-serif;
+}
 
 /*----------------NAVBAR ------------------*/
 
@@ -44,6 +47,17 @@
     color: white;
 }
 
+.card-deck {
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px; 
+    float: none;     
+}
+
+.card{
+    background-color: #e6e6fa24;
+    padding: 0px;
+}
 
 
 /*-----------SIGNUP.HTML -------------------*/
@@ -170,3 +184,6 @@ legend {
     }
 
 }
+
+
+

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import Listing
 from .forms import ListingAddForm
@@ -36,3 +36,10 @@ def view_property(request):
     listing = Listing.objects.filter(user=request.user).order_by('-published_date')
     template = 'viewlisting.html'
     return render(request, template, {'listing': listing, 'user': user})
+
+
+def property_detail(request, pk):
+    # listing = Listing.objects.filter(pk=pk)
+    listing = get_object_or_404(Listing, pk=pk)
+    listing.save()
+    return render(request, "propertydetail.html", {'listing': listing})

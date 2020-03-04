@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block page_title %} Home {% endblock %}
+
+
+{% block content %}
+
+<div class="container card-deck">
+	<div class="card col-sm-12 col-md-4 col-lg-4">
+
+		<img src="/media/{{ listing.photos }}" class="card-img-top" alt="Card image cap" />
+
+		<div class="card-body col-sm-12 description">
+
+			<div class="card-text">
+				<p>{{ listing.title }}</p>
+				<p> £{{ listing.price }} pmc</p>
+
+			</div>
+
+			<div class="card-text">
+				<p><i class="fa fa-road"> {{ listing.address }}, {{ listing.city }}, {{ listing.postcode }}</i></p>
+			</div>
+
+
+			<div class="card-text">
+				<p>
+					<i class="fa fa-bed"> {{ listing.bedrooms }} Beds </i> &nbsp;
+					<i class="fa fa-bath"> {{ listing.bathrooms }} Baths </i> &nbsp;
+					<i class="fa fa-tv"> {{ listing.rooms }} Room </i>
+				</p>
+			</div>
+
+
+
+            {% if user.is_authenticated %}
+                <a href="#" class="btn butt">Edit Details</a>
+                <a href="#" class="btn butt">Delete Property</a>
+            {% endif %}
+
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}
