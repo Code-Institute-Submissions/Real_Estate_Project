@@ -36,8 +36,8 @@
 
 
             {% if user.is_authenticated %}
-                <a href="#" class="btn butt">Edit Details</a>
-                <a href="#" class="btn butt">Delete Property</a>
+                <a href="{% url 'edit_property' listing.id %}" class="btn butt">Edit Details</a>
+                <a href="{% url 'delete' listing.id %}" class="btn butt">Delete Property</a>
             {% endif %}
 
 		</div>

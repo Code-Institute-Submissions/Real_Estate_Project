@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.utils import timezone
 from .models import Listing
 from .forms import ListingAddForm
@@ -43,3 +43,18 @@ def property_detail(request, pk):
     listing = get_object_or_404(Listing, pk=pk)
     listing.save()
     return render(request, "propertydetail.html", {'listing': listing})
+
+
+def edit_property(request, pk):
+    listing = Listing.objects.get(pk=pk)
+    listing.save()
+    return redirect(reverse('add_property'), {'listing': listing})
+    # redirected to add property just added a new property
+
+
+def delete(request, pk):
+    listing = Listing.objects.get(pk=pk)
+    listing.delete()
+    return redirect(reverse('view_property'), {'listing': listing})
+
+# delete function working! very well!
