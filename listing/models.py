@@ -31,4 +31,4 @@ class Listing(models.Model):
     def __str__(self):
         return "{0} - {1} - {2}".format(self.id, self.title, self.user)
 
-    # see if i need to pass more self.something to work everything.
+ 

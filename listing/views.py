@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
-from django.utils import timezone
+# from django.utils import timezone
 from .models import Listing
 from .forms import ListingAddForm
 
@@ -7,8 +7,7 @@ from django.contrib import messages
 # from django.contrib.auth.models import User
 
 
-def add_property(request):
-    
+def add_property(request):   
     if request.method == 'POST':
         form = ListingAddForm(request.POST, request.FILES)
 
@@ -16,11 +15,9 @@ def add_property(request):
             form.save()
             #   user = form.cleaned_data['user']
             messages.success(request, 'Property Saved!')
-            form = ListingAddForm()
-            
+            form = ListingAddForm()           
         else:
             messages.error(request, 'Property not saved!')
-    
     else:
         form = ListingAddForm()
     context = {
@@ -30,8 +27,7 @@ def add_property(request):
     return render(request, 'addproperty.html', context)
 
 
-def view_property(request):
-    
+def view_property(request):   
     user = request.user
     listing = Listing.objects.filter(user=request.user).order_by('-published_date')
     template = 'viewlisting.html'
@@ -47,8 +43,14 @@ def property_detail(request, pk):
 
 def edit_property(request, pk):
     listing = Listing.objects.get(pk=pk)
-    listing.save()
-    return redirect(reverse('add_property'), {'listing': listing})
+    if request.method == "POST":
+        form = ListingAddForm(request.POST, request.FILES, instance=listing)
+        if form.is_valid():
+            listing = form.save()
+            return redirect('property_detail', listing.pk)
+    else:
+        form = ListingAddForm(instance=listing)
+    return render(request, 'editdetails.html', {'form': form})
     # redirected to add property just added a new property
 
 
@@ -57,4 +59,4 @@ def delete(request, pk):
     listing.delete()
     return redirect(reverse('view_property'), {'listing': listing})
 
-# delete function working! very well!
+# delete function working!

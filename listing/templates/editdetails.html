@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block content %}
+
+<div class="container signup">
+
+	<div class="row reg">
+		<div class="col-sm-12">
+            
+            <h1>Edit Property</h1>
+
+			<form method="POST" class="choose" enctype="multipart/form-data" autocomplete="on">
+				{% csrf_token %}
+
+				{{ form | as_bootstrap }}
+				<button type="submit" class="btn butt">Edit Property</button>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
