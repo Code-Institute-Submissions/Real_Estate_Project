@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block content %}
+         
+        <div class="col-sm-12">
+            <h1> Contact </h1>
+            <form action="{% url 'contact' %}" method="POST" class="form" autocomplete="off" enctype="multipart/form-data">
+                {% csrf_token %}
+
+				{{ form | as_bootstrap }}
+				<button type="submit" class="btn butt">Send Message</button>
+
+            </form>  
+        </div>
+
+    
+{% endblock %}

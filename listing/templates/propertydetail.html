@@ -33,16 +33,27 @@
 				</p>
 			</div>
 
+			<!-----FALTA ADICIONAR O RESTO DOS DETALHES ---->
+			<!-----FALTA ADICIONAR O PIC CARROCEL------>
+			<!-----FALTA ADICIONAR O CONTACT DETAILS OR BUTTON ----->
+			<!-----FALTA ADICIONAR O MAPA COM MARKCLUSTER ----->
 
 
-            {% if user.is_authenticated %}
-                <a href="{% url 'edit_property' listing.id %}" class="btn butt">Edit Details</a>
-                <a href="{% url 'delete' listing.id %}" class="btn butt">Delete Property</a>
-            {% endif %}
+
+			{% if user.is_authenticated %}
+			<a href="{% url 'edit_property' listing.id %}" class="btn butt">Edit Details</a>
+			<a href="{% url 'delete' listing.id %}" class="btn butt">Delete Property</a>
+			{% endif %}
 
 		</div>
 
 	</div>
 </div>
 
+<div class="container">
+	<div class="col-sm-12">
+		<p> For more details about this Property! </p>
+		<a href="{% url 'contact' %}" class="btn butt">Contact Us</a>
+	</div>
+</div>
 {% endblock %}

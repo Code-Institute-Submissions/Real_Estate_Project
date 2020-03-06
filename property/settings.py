@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'buy_package',
     'payment', 
     'listing',
+    'search',
 ]
 
 MIDDLEWARE = [

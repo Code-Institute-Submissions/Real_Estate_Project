@@ -10,7 +10,12 @@ class ListingAddForm(forms.ModelForm):
                   'bedrooms', 'bathrooms', 'sqft', 'garage', 'garden', 'photos',
                   'description', 'published_date', 'user']
 
-''' 
-THE FIELDS ARE THOSE CREATED ON MODELS.PY FILE
-the fields that we're going to have on our form are user editable fields
-'''
+
+class ContactFrom(forms.Form):
+    name = forms.CharField(label='name', max_length=50)
+    email = forms.EmailField(label='email', max_length=50)
+    subject = forms.CharField(label='subject', max_length=100)
+    message = forms.CharField(label='message', widget=forms.Textarea)
+
+
+

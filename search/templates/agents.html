@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block content %}
+
+<section>
+	<div class="container card-deck">
+
+        <h1> 
+        ADD PHONE, ADDRESS, CITY, POSTCODE,
+        IMG, AND MAP LOCATION 
+        IF ALL POSSIBLE!
+        </h1>
+
+
+		{% for users in user %}
+
+            <div class="card-text">
+                <p>{{ users.first_name }}</p>
+                <p>{{ users.Last_name }}</p>
+                <p>{{ users.email }}</p>
+
+            </div>
+
+            
+
+		{% endfor %}
+
+	</div>
+</section>
+{% endblock %}
+
+
+<!---------
+
+email, first_name, last_name
+--------->

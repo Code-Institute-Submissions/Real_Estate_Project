@@ -40,9 +40,9 @@
                     <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
 
 					{% else %}
-					<a class="nav-item nav-link" href="@buy">Buy</a>
-					<a class="nav-item nav-link" href="@rent">Rent</a>
-					<a class="nav-item nav-link" href="@agents">Agencies</a>
+					<a class="nav-item nav-link" href="{% url 'buy_search' %}">Buy</a>
+					<a class="nav-item nav-link" href="{% url 'rent_search' %}">Rent</a>
+					<a class="nav-item nav-link" href="{% url 'agency_search'%}">Agencies</a>
 					<a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
 					<a class="nav-item nav-link" href="{% url 'signup' %}">Sign Up</a>         
 					{% endif %}
