@@ -20,7 +20,9 @@ class Listing(models.Model):
     garage = models.BooleanField()
     garden = models.BooleanField()
     # image
-    photos = models.ImageField(upload_to="img")
+    photos = models.ImageField(upload_to="img", default="photo")
+    photo1 = models.ImageField(upload_to="img", default="img1")
+    photo2 = models.ImageField(upload_to="img", default="img2")
     # textarea
     description = models.TextField(max_length=1000)
     # time Posted time.zone

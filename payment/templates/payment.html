@@ -26,26 +26,26 @@
 		</div>
 
 		<div class="price col-sm-12">
-			<p><strong>Amount Payble = </strong>£{{ total }}</p>
+			<p><strong>Amount Payble  </strong>£{{ total }}</p>
 		</div>
 
 
 		<div class="choose col-sm-12">
-			<form role="form" method="POST" id="payment-form" enctype="multipart/form-data"
-				action="{% url 'payment' %}">
-				<legend>Customer Details</legend>
+			<form role="form" method="POST" id="payment-form" enctype="multipart/form-data" action="{% url 'payment' %}">
+				
+                <legend class="col-sm-12">Customer Details</legend>
 
 				<div id="credit-card-errors" style="display: none;">
 					<div id="alert-message block-message error" id="stripe-error-message"></div>
 				</div>
 
-				<div class="col-sm-12">
+				<div class="choose col-sm-12">
 					{{ payment_form | as_bootstrap }}
 				</div>
 
-				<legend>Card Details</legend>
+				<legend class="col-sm-12">Card Details</legend>
 
-				<div class="col-sm-12">
+				<div class="choose col-sm-12">
 					{{ package_payment_form | as_bootstrap }}
 				</div>
 

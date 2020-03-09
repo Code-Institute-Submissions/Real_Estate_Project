@@ -2,6 +2,11 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
 
+{% block page_title %}
+Buy Package
+{% endblock %}
+
+
 {% block content %}
 <div class="container signup">
 	{% for item in cart_items %}

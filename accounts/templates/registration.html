@@ -3,20 +3,16 @@
 {% load bootstrap_tags %}
 
 {% block page_title %}
-Registration Page
-{% endblock %}
-
-{% block page_heading %}
-User Registration
+Register
 {% endblock %}
 
 
 {% block content %}
 
 <div class="container signup">
-
 	<div class="row reg">
 		<div class="col-sm-12">
+            
 			<form method="POST">
 				{% csrf_token %}
 				{{ registration_form | as_bootstrap }}

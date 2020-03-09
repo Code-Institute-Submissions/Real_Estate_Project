@@ -7,7 +7,7 @@ class ListingAddForm(forms.ModelForm):
         model = Listing
 
         fields = ['title', 'buy', 'rent', 'price', 'address', 'city', 'postcode', 'rooms',
-                  'bedrooms', 'bathrooms', 'sqft', 'garage', 'garden', 'photos',
+                  'bedrooms', 'bathrooms', 'sqft', 'garage', 'garden', 'photos', 'photo1', 'photo2',
                   'description', 'published_date', 'user']
 
 

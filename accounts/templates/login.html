@@ -4,20 +4,32 @@
 
 {% block page_title %}
 Login Page
-{% endblock %} 
+{% endblock %}
 
 {% block page_heading %}
 User Login
-{% endblock %} 
+{% endblock %}
 
 
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    {{ login_form | as_bootstrap }}
-      <button type="submit" class="btn butt">Login</button>
-</form>
 
-<a href="{% url 'password_reset' %}"> Reset Password </a>
+
+<div class="container signup">
+
+	<div class="row reg">
+		<div class="col-sm-12">
+			<form method="POST">
+				{% csrf_token %}
+				{{ login_form | as_bootstrap }}
+				<button type="submit" class="btn butt">Login</button>
+			</form>
+            
+		</div>
+        
+	</div>
+    <a href="{% url 'password_reset' %}" class="butt"> Reset Password </a>
+</div>
+
+
 
 {% endblock %}

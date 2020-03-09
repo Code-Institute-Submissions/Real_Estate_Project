@@ -1,22 +1,31 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 
+{% block page_title %}
+Add Property
+{% endblock %}
+
+
+
 {% block content %}
 
 <div class="container signup">
 
-	<div class="row reg">
-		<div class="col-sm-12">
-            
-            <h1>Add Property</h1>
+	<div class="row">
 
-			<form method="POST" class="choose" enctype="multipart/form-data" autocomplete="off">
+		<div class="price reg1 col-sm-12">
+			<h1>Add Property</h1>
+		</div>
+
+		<div class="choose col-sm-12">
+			<form method="POST" class="choose" enctype="multipart/form-data">
 				{% csrf_token %}
 
 				{{ form | as_bootstrap }}
 				<button type="submit" class="btn butt">Add Property</button>
 			</form>
 		</div>
+
 	</div>
 </div>
 {% endblock %}

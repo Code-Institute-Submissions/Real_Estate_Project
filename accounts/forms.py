@@ -20,15 +20,7 @@ class UserRegistrationForm(UserCreationForm):
     password2 = forms.CharField(
         label="Password Confirmation",
         widget=forms.PasswordInput)
-'''
-    name = forms.CharField(label="Company Name", widget=forms.TextInput)
-    phone = forms.IntegerField(label="Phone Number", widget=forms.TextInput)
-    address = forms.CharField(label="Address", widget=forms.TextInput)
-    city = forms.CharField(label="City", widget=forms.TextInput)
-    postcode = forms.CharField(label="Postcode", widget=forms.TextInput)
-    description = forms.CharField(label="Description", widget=forms.Textarea)
-    # image = forms.ImageField(upload_to="img")
- ''' 
+
 
 class Meta:
     model = User

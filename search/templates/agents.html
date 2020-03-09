@@ -6,20 +6,23 @@
 <section>
 	<div class="container card-deck">
 
-        <h1> 
-        ADD PHONE, ADDRESS, CITY, POSTCODE,
-        IMG, AND MAP LOCATION 
-        IF ALL POSSIBLE!
-        </h1>
+        {% for users in user %}
 
+            <div class="card-text col-sm-12">
+                
+                <table style="width:80%;"> 
+                    <tr>
+                        <th> Agency Name </th>
+                        <th> Agency Email </th>
+                    </tr>
 
-		{% for users in user %}
+                    <tr>
+                        <td> {{ users.first_name }} {{ users.last_name }}</td>
+                        <td> {{ users.email }} </td>
+                    </tr>
 
-            <div class="card-text">
-                <p>{{ users.first_name }}</p>
-                <p>{{ users.Last_name }}</p>
-                <p>{{ users.email }}</p>
-
+                </table>
+                 
             </div>
 
             
@@ -31,7 +34,3 @@
 {% endblock %}
 
 
-<!---------
-
-email, first_name, last_name
---------->
