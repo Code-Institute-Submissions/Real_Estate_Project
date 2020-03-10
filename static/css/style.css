@@ -314,10 +314,17 @@ legend {
  * element that contains the map. */
 #map {
     height: 50%;
-    width: 70%;
+    width: 71%;
     margin: auto;
     margin-bottom: 50px; 
 }
+
+@media (max-width: 769px){
+    #map {
+        width: 85%;
+    }
+}
+
 /* Optional: Makes the sample page fill the window. */
 html, body {
   height: 100%;
@@ -353,9 +360,22 @@ html, body {
   font-family: Roboto;
 }
 
+@media (max-width: 767px){
+    .pac-card{
+        width: 90%;
+    }
+}
 #pac-container {
   padding-bottom: 12px;
   margin-right: 12px;
+}
+
+
+/*------maps and satellite buttons not to display on mobile devices ----*/
+@media (max-width: 767px){
+    .gmnoprint{
+        display: none;
+    }
 }
 
 .pac-controls {
@@ -381,14 +401,15 @@ html, body {
   margin-top: 10px;
 }
 
-#pac-input:focus {
-  border-color: #4d90fe;
+@media (max-width: 767px){
+    #pac-input{
+        width: 90%;
+        margin-left: 15px;
+    }
 }
 
-#title {
-  color: #fff;
-  background-color: #4d90fe;
-  font-size: 25px;
-  font-weight: 500;
-  padding: 6px 12px;
+.desc {
+    margin-left: 28px
+
 }
+
