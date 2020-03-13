@@ -4,41 +4,47 @@
 {% block content %}
 
 <section>
-	<div class="container card-deck">
 
-		{% for property in listing %}
-		<div class="card col-sm-12 col-md-4 col-lg-4">
-            
-            <img src="/media/{{ property.photos }}" class="card-img-top" alt="Card image cap" />
+	<div class="container">
 
-			<div class="card-body col-sm-12 description">
-			
-                <div class="card-text">
-				    <p>{{ property.title }}</p>
-                    <p> £{{ property.price }} pmc</p>   				
-                   
+		<div class="row">
+
+
+			{% for property in listing %}
+			<div class="card-deck col-sm-12 col-md-6 col-lg-4 col-xl-4">
+				<div class="card">
+
+					<img src="/media/{{ property.photos }}" class="card-img-top" alt="Card image cap" />
+
+					<div class="card-body col-sm-12 description">
+
+						<div class="card-text">
+							<p>{{ property.title }}</p>
+							<p> £{{ property.price }} </p>
+
+						</div>
+
+						<div class="card-text">
+							<p><i class="fa fa-road"> {{ property.address }}, {{ property.city }}, {{ property.postcode }}</i>
+							</p>
+						</div>
+
+
+						<div class="card-text">
+							<p>
+								<i class="fa fa-bed"> {{ property.bedrooms }} Beds </i> &nbsp;
+								<i class="fa fa-bath"> {{ property.bathrooms }} Baths </i> &nbsp;
+								<i class="fa fa-tv"> {{ property.rooms }} Room </i>
+							</p>
+						</div>
+
+					</div>
+
+					<a href="{% url 'property_detail' property.id %}" class="btn butt">Details</a>
 				</div>
-
-                <div class="card-text">
-					<p><i class="fa fa-road"> {{ property.address }}, {{ property.city }}, {{ property.postcode }}</i></p>
-				</div>
-
-
-				<div class="card-text">
-                    <p>
-					<i class="fa fa-bed"> {{ property.bedrooms }} Beds </i> &nbsp; 
-					<i class="fa fa-bath"> {{ property.bathrooms }} Baths </i> &nbsp; 
-					<i class="fa fa-tv"> {{ property.rooms }} Room </i>
-                    </p>
-				</div>   
-
 			</div>
-
-                <a href="{% url 'property_detail' property.id %}" class="btn butt">Details</a>    
-		</div>
-
 			{% endfor %}
-
+		</div>
 	</div>
 </section>
 {% endblock %}

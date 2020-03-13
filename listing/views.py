@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 # from django.utils import timezone
 from .models import Listing
-from .forms import ListingAddForm, ContactFrom
-
+from .forms import ListingAddForm
 from django.contrib import messages
 # from django.contrib.auth.models import User
+
 
 
 def add_property(request):   
@@ -60,22 +60,9 @@ def delete(request, pk):
     return redirect(reverse('view_property'), {'listing': listing})
 
 
-def contact(request):
-    form = ContactFrom(request.POST or None)
 
-    if request.method == 'POST':
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            subject = form.cleaned_data['subject']
-            message = form.cleaned_data['message']
 
-            messages.success(request, 'Resquet Sent!')
-            form = ContactFrom()
 
-        else:
-            messages.error(request, 'Request not sent!')
-    context = {
-        'form': form 
-    }
-    return render(request, 'contact.html', context)
+
+
+

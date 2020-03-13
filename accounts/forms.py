@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 
 class UserLoginForm(forms.Form):
     """Form to be used to log users in"""
-
+   
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
 
@@ -21,16 +21,19 @@ class UserRegistrationForm(UserCreationForm):
         label="Password Confirmation",
         widget=forms.PasswordInput)
 
+    email = forms.EmailField()
+    name = forms.CharField(max_length=50)
+    phone = forms.IntegerField()
+    address = forms.CharField(max_length=100)
+    city = forms.CharField(max_length=40)
+    postcode = forms.CharField(max_length=15) 
+    description = forms.CharField(widget=forms.Textarea)
+
 
 class Meta:
     model = User
-    fields = ['email', 'username', 'password1', 'password2']
-
-
-'''
-, 'name',
-'phone', 'address', 'city', 'postcode', 'description'
-'''
+    fields = ['email', 'username', 'password1', 'password2', 'name',
+              'phone', 'address', 'city', 'postcode', 'description']
 
 
 def clean_email(self):

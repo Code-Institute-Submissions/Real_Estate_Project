@@ -1,39 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="container">
+	<div class="row">
+		{% for property in listing %}
+		<div class="card-deck col-sm-12 col-md-4 col-lg-4">
+			<div class="card">
 
-<div class="container card-deck">
+				<img src="/media/{{ property.photos }}" class="card-img-top" alt="Card image cap" />
 
-	{% for property in listing %}
-	<div class="card col-sm-12 col-md-4 col-lg-4">
+				<div class="card-body col-sm-12 description">
 
-		<img src="/media/{{ property.photos }}" class="card-img-top" alt="Card image cap" />
+					<div class="card-text">
+						<p>{{ property.title }}</p>
+						<p> £{{ property.price }} pmc</p>
 
-		<div class="card-body col-sm-12 description">
+					</div>
 
-			<div class="card-text">
-				<p>{{ property.title }}</p>
-				<p> £{{ property.price }} pmc</p>
+					<div class="card-text">
+						<p><i class="fa fa-road"> {{ property.address }}, {{ property.city }}, {{ property.postcode }}</i>
+						</p>
+					</div>
 
+
+					<div class="card-text">
+						<p>
+							<i class="fa fa-bed"> {{ property.bedrooms }} Beds </i> &nbsp;
+							<i class="fa fa-bath"> {{ property.bathrooms }} Baths </i> &nbsp;
+							<i class="fa fa-tv"> {{ property.rooms }} Room </i>
+						</p>
+					</div>
+
+				</div>
+				<a href="{% url 'property_detail' property.id %}" class="btn butt">Details</a>
 			</div>
-
-			<div class="card-text">
-				<p><i class="fa fa-road"> {{ property.address }}, {{ property.city }}, {{ property.postcode }}</i></p>
-			</div>
-
-
-			<div class="card-text">
-				<p>
-					<i class="fa fa-bed"> {{ property.bedrooms }} Beds </i> &nbsp;
-					<i class="fa fa-bath"> {{ property.bathrooms }} Baths </i> &nbsp;
-					<i class="fa fa-tv"> {{ property.rooms }} Room </i>
-				</p>
-    		</div>
-	
 		</div>
-		<a href="{% url 'property_detail' property.id %}" class="btn butt">Details</a>
+		{% endfor %}
 	</div>
-	{% endfor %}
-
 </div>
 {% endblock %}

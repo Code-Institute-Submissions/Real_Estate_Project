@@ -1,3 +1,4 @@
+
 // ---------------Photo Carousel script ------------------ 
 
 var slideIndex = 1;
