@@ -31,32 +31,23 @@
                                 <option value="3">Three</option>
                             </select>
 						</div>
-    				</div>
+					</div>
 					<div class="col-sm-3">
 						<div class="input-group mb-3">
 							<select class="custom-select" id="inputGroupSelect03" name="city">
                                 <option selected>City</option>
                                 <option value="London">London</option>                               
                             </select>
-	    				</div>
+						</div>
 					</div>
 					<div class="col-sm-3">
-                    	<button type="submit" class="butt btn btn-block">Search</button>
-    				</div>
+						<button type="submit" class="butt btn btn-block">Search</button>
+					</div>
 				</div>
 			</form>
 		</section>
 	</div>
 </div>
-
-        <div class="display">
-            <form action="{% url 'search' %}" method="GET">
-                {% csrf_token %}
-                <input type="text" name="q">
-                <button type="submit">Search</button>
-            </form>
-        </div>
-
 
 <section class="main-photo">
 	<div>
@@ -86,7 +77,8 @@
 						</div>
 
 						<div class="card-text">
-							<p><i class="fa fa-road"> {{ property.address }}, {{ property.city }}, {{ property.postcode }}</i></p>
+							<p><i class="fa fa-road"> {{ property.address }}, {{ property.city }}, {{ property.postcode }}</i>
+							</p>
 						</div>
 
 
@@ -104,6 +96,39 @@
 				</div>
 			</div>
 			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+
+		<div class="row">
+			<div class="pagination">
+				{% if lists.has_previous %}
+				<a class="pagination-number" href="?page=1"> <i class="fa fa-angle-double-left"></i> </a>
+				<a class="pagination-number" href="?page={{ lists.previous_page_number }}"> <i class="fa fa-angle-left"></i> </a>
+				{% endif %}
+
+				{% for num in lists.paginator.page_range %}
+
+				{% if lists.number == num %}
+				<span class="pagination-number pagination-current"> {{ num }} </span>
+
+				{% elif num > lists.number|add:'-4' and num < lists.number|add:'4' %}
+
+				<a class="pagination-number" href="?page={{ num }}">{{ num }}</a>
+				{% endif %}
+				{% endfor %}
+
+				{% if lists.has_next %}
+				<a class="pagination-number" href="?page={{ lists.next_page_number }}">
+					<i class="fa fa-angle-right"></i> </a>
+				<a class="pagination-number" href="?page={{ lists.paginator.num_pages }}">
+					<i class="fa fa-angle-double-right"></i> </a>
+				{% endif %}
+
+			</div>
 		</div>
 	</div>
 </section>

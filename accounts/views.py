@@ -5,6 +5,7 @@ from accounts.forms import UserLoginForm,  UserRegistrationForm
 from django.contrib.auth.models import User
 from listing.models import Listing
 from django.utils import timezone
+from django.core.paginator import Paginator
 # Create your views here.
 
 
@@ -12,6 +13,10 @@ def index(request):
     '''Return html File'''
     lists = Listing.objects.filter(published_date__lte=timezone.now()
     ).order_by('-published_date')
+
+    paginator = Paginator(lists, 6)
+    page = request.GET.get('page', 1) 
+    lists = paginator.page(page)
     return render(request, "index.html", {'lists': lists})
     
 

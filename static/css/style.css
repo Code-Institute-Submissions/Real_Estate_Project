@@ -421,3 +421,27 @@ html, body {
 
 }
 
+/*------------------PAGIANTOR-------------------------*/
+
+.pagination {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 0px;
+    font-size: 12px;
+
+}
+
+.pagination-number {
+    background-color: #B89F57;
+    color: #fff;
+    border-radius: 2px;
+    padding: 0.5em 0.8em;
+    margin: 1px;
+}
+
+.pagination-number:hover, .pagination-current {
+    background-color: rgb(119, 102, 50);
+    color: #fff;
+
+}

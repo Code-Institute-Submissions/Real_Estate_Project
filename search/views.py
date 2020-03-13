@@ -1,17 +1,23 @@
 from django.shortcuts import render
 from listing.models import Listing
-
+from django.core.paginator import Paginator
 
 # Create your views here.
 
 
 def buy_search(request):
     listing = Listing.objects.filter(buy=True)
+    paginator = Paginator(listing, 6)
+    page = request.GET.get('page', 1) 
+    listing = paginator.page(page)
     return render(request, "buy.html", {"listing": listing})
 
 
 def rent_search(request):
     listing = Listing.objects.filter(rent=True)
+    paginator = Paginator(listing, 6)
+    page = request.GET.get('page', 1) 
+    listing = paginator.page(page)
     return render(request, "rent.html", {"listing": listing})
 
 
