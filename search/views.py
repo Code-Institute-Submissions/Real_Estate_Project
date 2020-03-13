@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from listing.models import Listing
-from django.contrib.auth.models import User
-from django.db.models import Q
+
+
 # Create your views here.
 
 
@@ -13,11 +13,6 @@ def buy_search(request):
 def rent_search(request):
     listing = Listing.objects.filter(rent=True)
     return render(request, "rent.html", {"listing": listing})
-
-
-def agency_search(request):
-    user = User.objects.all()
-    return render(request, "agents.html", {"user": user})
 
 
 def search_all(request):
@@ -35,20 +30,3 @@ def search_all(request):
         listing = listing.filter(price__lte=query2)
         
     return render(request, "search.html", {"listing": listing})
-
-
-'''
-     Q(address__contains=query) |
-            Q(city__contains=query) |
-            Q(postcode__contains=query) |
-            Q(bathrooms__contains=query) |
-            Q(bedrooms__contains=query) |
-            Q(rooms__contains=query) |
-            Q(price__contains=query) |
-            Q(garage__contains=query) |
-            Q(garden__contains=query) |
-            Q(sqft__contains=query) |
-            Q(title__contains=query) |
-            Q(buy__contains=query) |
-            Q(rent__contains=query)
-'''
