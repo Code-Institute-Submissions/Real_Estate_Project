@@ -27,10 +27,11 @@ def rent_search(request):
 def search_all(request):
       
     listing = Listing.objects.all()
+    
     query = None if request.GET.get('bed') == 'Bedrooms' else request.GET.get('bed')
     query1 = None if request.GET.get('city') == 'City' else request.GET.get('city')
     query2 = None if request.GET.get('price') == 'Price' else request.GET.get('price')
-         
+    
     if query:
         listing = listing.filter(bedrooms=query)
     if query1:

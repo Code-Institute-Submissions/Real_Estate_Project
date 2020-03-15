@@ -1,0 +1,453 @@
+body{
+    font-family: 'Oxygen', sans-serif;
+    
+}
+
+/*----------------NAVBAR ------------------*/
+
+.topo {
+    background-color: #01082b;
+    margin: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: auto;
+    
+    }
+
+.navbar-nav .nav-link {
+    color: #B89F57;
+}
+
+.nav-link:hover {
+    background-color: #B89F57;
+    color: #fff;
+}
+
+.navbar-toggler-icon {
+    height: 21px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #B89F57;
+    
+    }
+
+.main-search{
+    background-color: #01082b;
+    border-top: #B89F57 2px solid;
+    padding: 25px;
+           
+}
+/*----------------SECTION PHOTO -------------------------*/
+
+.photo{
+    width: 100%;
+}
+
+.main-photo {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+
+
+/*----------------INDEX.HTML -----------------*/
+
+.butt{
+    background-color: #B89F57;
+    color: white;
+}
+
+.card-deck {
+   
+    margin-top: 50px;
+    margin-bottom: 30px; 
+    display: inline-flex;   
+}
+
+.card{
+    background-color: #e6e6fa24;
+    padding: 0px;
+}
+
+
+/*-----------SIGNUP.HTML -------------------*/
+
+.signup {
+    text-align: center;
+    background-color: #01082b;
+    color: #B89F57;
+    margin-top: 50px;
+    margin-bottom: 50px; 
+    width: 60%;
+    border-radius: 35px;  
+    
+}
+
+@media (max-width: 769px){
+    .signup {
+        width: 80%;
+    }
+
+}
+
+.plan{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: 0px 1px solid #B89F57;
+    font-size: 25px;
+
+}
+
+.price {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    border: 1px solid #B89F57;
+    font-size: 30px;
+    background-color: lavender;
+  
+
+}
+
+
+.items {
+    padding-bottom: 10px;
+    padding-top: 40px;
+    border: 1px 0px solid #B89F57;
+    font-size: 15px;
+}
+
+.choose {
+   /*-- border-top: 1px solid #B89F57; -*/
+    width: 70%;
+    text-align: -webkit-center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 769px){
+    .choose {
+        width: 100%;
+    }
+
+}
+
+.qnty {
+    width: 50%;
+    display: inline-block;
+}
+
+.sign-btn {
+    padding-bottom: 25px;
+}
+
+/*-----------------------BUY_PACKAGE.HTML---------------*/
+
+.cart {
+    text-align: center;
+    background-color: #01082b;
+    color: #B89F57;
+    margin-top: 50px; 
+    width: 60%;
+    border-radius: 35px;
+
+}
+
+.fix{
+    width: 50%;
+    height: 36px;
+    
+}
+
+.pay{
+    border-top: 1px solid #B89F57;
+    padding: 15px;
+    
+}
+
+.sub{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    vertical-align: unset;
+}
+
+.total {
+    font-size: 25px;
+}
+
+
+
+/*-----------------PAYMENT.HTML------------------*/
+
+
+legend {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #B89F57;
+    padding-bottom: 15px;    
+}
+
+@media (max-width: 767px){
+    .legend {
+        border-top: 1px solid #B89F57;
+        padding-top: 15px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid #B89F57;
+        padding-bottom: 15px; 
+
+    }
+
+}
+/*---------------------REGISTRATION.HTML-------------*/
+
+.reg{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+@media (max-width: 769px){
+    .reg{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+}
+
+.reg1 {
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px; 
+}
+
+
+
+
+/*------------EDIT DETAILS HTML PHOTO CAROUSEL ------------------*/
+
+* {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: #fff;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: #fff;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+
+
+/*---------MAP-----------------------*/
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+    height: 500px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 50px; 
+}
+
+@media (max-width: 769px){
+    #map {
+        height: 300px;
+    }
+}
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+@media (max-width: 767px){
+    .pac-card{
+        width: 90%;
+    }
+}
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+
+/*------maps and satellite buttons not to display on mobile devices ----*/
+@media (max-width: 767px){
+    .gmnoprint{
+        display: none;
+    }
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+  margin-top: 10px;
+}
+
+@media (max-width: 767px){
+    #pac-input{
+        width: 90%;
+        margin-left: 15px;
+    }
+}
+
+.desc {
+    
+    text-align: center;
+
+}
+
+/*------------------PAGIANTOR-------------------------*/
+
+.pagination {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 0px;
+    font-size: 12px;
+
+}
+
+.pagination-number {
+    background-color: #B89F57;
+    color: #fff;
+    border-radius: 2px;
+    padding: 0.5em 0.8em;
+    margin: 1px;
+}
+
+.pagination-number:hover, .pagination-current {
+    background-color: rgb(119, 102, 50);
+    color: #fff;
+
+}

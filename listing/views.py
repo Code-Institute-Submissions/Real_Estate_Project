@@ -5,14 +5,12 @@ from django.contrib import messages
 from django.conf import settings
 
 
-
 def add_property(request):   
     if request.method == 'POST':
         form = ListingAddForm(request.POST, request.FILES)
 
         if form.is_valid():
             form.save()
-            #   user = form.cleaned_data['user']
             messages.success(request, 'Property Saved!')
             form = ListingAddForm()           
         else:
