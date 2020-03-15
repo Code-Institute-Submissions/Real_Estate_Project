@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import dj_database_url
+
+from os import path
+if path.exists("env.py"):
+    import env
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -21,11 +26,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '8f2$#hkkqzcj&@@@1o&px#8llkz6*l!frh6$*e9%+n^h+&a*f-'
+SECRET_KEY = os.environ.get('SECRET_KEY') 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# colocar o heroku http aki tbm
 ALLOWED_HOSTS = ['localhost']
 
 
@@ -145,8 +151,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE')
 # STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET')
 
-STRIPE_PUBLISHABLE = 'pk_test_3qIFbwO8Gw2wRKGU9ddVtAp000T9tGDRYE'
-STRIPE_SECRET = 'sk_test_dkquWlrCilci7CJ46CjikliO00qdSkXcTA'
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage" 

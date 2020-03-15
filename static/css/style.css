@@ -18,6 +18,11 @@ body{
     color: #B89F57;
 }
 
+.nav-link:hover {
+    background-color: #B89F57;
+    color: #fff;
+}
+
 .navbar-toggler-icon {
     height: 21px;
 }
@@ -321,15 +326,15 @@ legend {
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
 #map {
-    height: 50%;
-    width: 71%;
+    height: 500px;
+    width: 100%;
     margin: auto;
     margin-bottom: 50px; 
 }
 
 @media (max-width: 769px){
     #map {
-        width: 85%;
+        height: 300px;
     }
 }
 
@@ -417,7 +422,8 @@ html, body {
 }
 
 .desc {
-    margin-left: 28px
+    
+    text-align: center;
 
 }
 

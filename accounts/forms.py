@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 
 class UserLoginForm(forms.Form):
     """Form to be used to log users in"""
-   
+
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
 
@@ -21,37 +21,25 @@ class UserRegistrationForm(UserCreationForm):
         label="Password Confirmation",
         widget=forms.PasswordInput)
 
-    email = forms.EmailField()
-    name = forms.CharField(max_length=50)
-    phone = forms.IntegerField()
-    address = forms.CharField(max_length=100)
-    city = forms.CharField(max_length=40)
-    postcode = forms.CharField(max_length=15) 
-    description = forms.CharField(widget=forms.Textarea)
+    class Meta:
+        model = User
+        fields = ['email', 'username', 'password1', 'password2']
+           
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        username = self.cleaned_data.get('username')
+        if User.objects.filter(email=email).exclude(username=username):
+            raise forms.ValidationError(u'Email address must be unique')
+        return email
 
+    def clean_password2(self):
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
 
-class Meta:
-    model = User
-    fields = ['email', 'username', 'password1', 'password2', 'name',
-              'phone', 'address', 'city', 'postcode', 'description']
-
-
-def clean_email(self):
-    email = self.cleaned_data.get('email')
-    username = self.cleaned_data.get('username')
-    if User.objects.filter(email=email).exclude(username=username):
-        raise forms.ValidationError(u'Email address must be unique')
-    return email
-
-
-def clean_password2(self):
-    password1 = self.cleaned_data.get('password1')
-    password2 = self.cleaned_data.get('password2')
-
-    if not password1 or not password2:
-        raise ValidationError("Please confirm your password")
+        if not password1 or not password2:
+            raise ValidationError("Please confirm your password")
         
-    if password1 != password2:
-        raise ValidationError("Passwords must match")
+        if password1 != password2:
+            raise ValidationError("Passwords must match")
         
-    return password2
+        return password2

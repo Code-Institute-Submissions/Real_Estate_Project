@@ -13,7 +13,7 @@
 
 					<div class="card-text">
 						<p>{{ property.title }}</p>
-						<p> £{{ property.price }} pmc</p>
+						<p> £{{ property.price }} {% if property.rent %} pmc {% endif %}</p>
 
 					</div>
 
