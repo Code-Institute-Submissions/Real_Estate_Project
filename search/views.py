@@ -28,17 +28,28 @@ def search_all(request):
       
     listing = Listing.objects.all()
     
-    query = None if request.GET.get('bed') == 'Bedrooms' else request.GET.get('bed')
-    query1 = None if request.GET.get('city') == 'City' else request.GET.get('city')
-    query2 = None if request.GET.get('price') == 'Price' else request.GET.get('price')
-    
-    if query:
-        listing = listing.filter(bedrooms=query)
-    if query1:
-        listing = listing.filter(city=query1)
-    if query2:
-        listing = listing.filter(price__lte=query2)
-
+    # im getting the request from user
+    bedroom_query = None if request.GET.get('bed') == 'Bedrooms' else request.GET.get('bed')
+    city_query = None if request.GET.get('city') == 'City' else request.GET.get('city')
+    min_price_query = None if request.GET.get('min_price') == 'Min Price' else request.GET.get('min_price')
+    max_price_query = None if request.GET.get('max_price') == 'Max Price' else request.GET.get('max_price')
+    buy_rent_query = None if request.GET.get('buy_rent') == 'Buy or Rent' else request.GET.get('buy_rent')
+     
+    # filtering the result as they want to find the specific product 
+    if bedroom_query:
+        listing = listing.filter(bedrooms=bedroom_query)
+    if city_query:
+        listing = listing.filter(city=city_query)
+    if min_price_query:
+        listing = listing.filter(price__gte=min_price_query)
+    if max_price_query:
+        listing = listing.filter(price__lte=max_price_query)
+    if buy_rent_query:
+        if buy_rent_query == 'buy':
+            listing = listing.filter(buy=True)
+        if buy_rent_query == 'rent':
+            listing = listing.filter(rent=True)
+       
     paginator = Paginator(listing, 6)
     page = request.GET.get('page', 1) 
     listing = paginator.page(page)

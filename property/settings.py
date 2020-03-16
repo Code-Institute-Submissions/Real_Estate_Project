@@ -152,7 +152,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-
 # EXEMPLO:
 # STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE')
 # STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET')
