@@ -3,6 +3,9 @@ body{
     
 }
 
+a {
+    color: #fff;
+}
 /*----------------NAVBAR ------------------*/
 
 .topo {
@@ -16,11 +19,13 @@ body{
 
 .navbar-nav .nav-link {
     color: #B89F57;
+    
 }
 
 .nav-link:hover {
     background-color: #B89F57;
     color: #fff;
+    border-radius: 5px;
 }
 
 .navbar-toggler-icon {

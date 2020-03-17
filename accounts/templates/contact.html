@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block page_title %} Contact Us {% endblock %}
+
+{% block head_js %}
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+        emailjs.init("user_cZv4u9dEB6SxvEL5zOUfP");
+        })();
+    </script>
+
+{% endblock %}
+
+{% block content %}
+
+
+<form onsubmit="return sendMail(this);">
+    {% csrf_token %}
+	<input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required/>
+	<input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email" required/>
+
+	<textarea rows="5" name="projectsummary" class="form-control" id="projectsummary" placeholder="Email Description" required></textarea>
+
+	<button type="submit" class="btn btn-secondary center-block">Email Me</button>
+</form>
+
+
+
+{% endblock %}

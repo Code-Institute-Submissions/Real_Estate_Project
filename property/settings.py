@@ -85,7 +85,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'property.wsgi.application'
 
-AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend', 'accounts.backends.EmailAuth']
 
 # 'accounts.backends.CaseInsensitiveAuth'
 # shoud be inside authentication_backends but its giving me error 
@@ -163,3 +163,13 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage" 
 
 GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
+
+'''
+# email configuration
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_USE_TSL = True
+EMAIL_HOST = 'smtp.hotmail.com'
+EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+EMAIL_PORT = 587
+'''

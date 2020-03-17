@@ -53,6 +53,7 @@ def login(request):
 
 def registration(request):
     """Render the registration page"""
+  
     if request.user.is_authenticated:
         return redirect(reverse('index'))
 
@@ -81,3 +82,5 @@ def user_profile(request):
     return render(request, 'profile.html', {"profile": user})
 
 
+def contact(request):
+    return render(request, 'contact.html')
