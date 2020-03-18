@@ -19,7 +19,9 @@ a {
 
 .navbar-nav .nav-link {
     color: #B89F57;
-    
+    margin-left: 15px;
+    font-size: 18px;
+    font-weight: 900;
 }
 
 .nav-link:hover {
@@ -34,7 +36,7 @@ a {
 
 .navbar-light .navbar-nav .nav-link {
     color: #B89F57;
-    
+        
     }
 
 .main-search{
@@ -42,6 +44,14 @@ a {
     border-top: #B89F57 2px solid;
     padding: 25px;
            
+}
+
+.ml-auto {
+    margin-right: 50px;
+}
+
+.mr-auto {
+    margin-left: 10px;
 }
 /*----------------SECTION PHOTO -------------------------*/
 

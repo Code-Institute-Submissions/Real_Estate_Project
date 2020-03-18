@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Listing(models.Model):
     '''model to add properties'''
     
+    #choicefield()
     title = models.CharField(max_length=50)
     buy = models.BooleanField()
     rent = models.BooleanField()  

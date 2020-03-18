@@ -3,6 +3,92 @@
 
 {% block content %}
 
+<div class="container-fluid main-search">
+	<div class="main-search__container">
+		<section class="listing-search">
+			<form action="{% url 'search' %}" method="get" class="listing-search__form">
+				{% csrf_token %}
+				<div class="row">
+
+                    
+                    <div class="col-sm-2">
+						<div class="input-group mb-3">
+							<select class="custom-select" id="inputGroupSelect" name="buy_rent">
+                                <option selected value="buy">Buy</option>                              
+                            </select>
+						</div>
+					</div>
+                    
+
+                    <div class="col-sm-2">
+						<div class="input-group mb-3">
+							<select class="custom-select" id="inputGroupSelect01" name="min_price">
+                                <option selected>Min Price</option>
+                                <option value="100000">100000</option>
+                                <option value="200000">200000</option>
+                                <option value="300000">300000</option>
+                                <option value="400000">400000</option>
+                                <option value="500000">500000</option>
+                                <option value="600000">600000</option>
+                                <option value="700000">700000</option>
+                                <option value="800000">800000</option>
+                                <option value="900000">900000</option>
+                                <option value="1000000">1000000</option>  
+                            </select>
+                        </div>
+					</div>
+
+                    <div class="col-sm-2">
+						<div class="input-group mb-3">
+							<select class="custom-select" id="inputGroupSelect00" name="max_price">
+                                <option selected>Max Price</option>
+                                <option value="100000">100000</option>
+                                <option value="200000">200000</option>
+                                <option value="300000">300000</option>
+                                <option value="400000">400000</option>
+                                <option value="500000">500000</option>
+                                <option value="600000">600000</option>
+                                <option value="700000">700000</option>
+                                <option value="800000">800000</option>
+                                <option value="900000">900000</option>
+                                <option value="1000000">1000000</option>   
+                            </select>
+                        </div>
+					</div>
+
+					<div class="col-sm-2">
+						<div class="input-group mb-3">
+							<select class="custom-select" id="inputGroupSelect02" name="bed">
+                                <option selected>Bedrooms</option>
+                                <option value="1">1 bed</option>
+                                <option value="2">2 beds</option>
+                                <option value="3">3 beds</option>
+                                <option value="4">4 beds</option>
+                                <option value="5">5 beds</option>
+                                <option value="6">6 beds</option>
+                                <option value="7">7 beds</option>
+                            </select>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="input-group mb-3">
+							<select class="custom-select" id="inputGroupSelect03" name="city">
+                                <option selected>City</option>
+                                <option value="London">London</option>                               
+                            </select>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<button type="submit" class="butt btn btn-block">Search</button>
+					</div>
+				</div>
+			</form>
+		</section>
+	</div>
+</div>
+
+
+
 <section>
 	<div class="container">
 		<div class="row">

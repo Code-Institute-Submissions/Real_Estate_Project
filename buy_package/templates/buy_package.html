@@ -31,7 +31,7 @@ Buy Package
 
 					<div class="col-sm-12">
 						<input name="quantity" type="number" min="1" max="12" class="fix" placeholder="Add Quantity...">
-                        <button type="submit" class="btn butt">Amend</button>
+                        <button type="submit" class="btn butt">Save</button>
 					</div>
 
                     <div class="sub col-sm-12">
@@ -48,14 +48,6 @@ Buy Package
 		<p class="total"><strong>Total Payble: </strong> £{{ total }} </p>
 		<a href="{% url 'payment' %}" class="btn butt" role="button">Checkout</a>
 	</div>
-
-
-
 </div>
-
-
-
-
-
 {% endblock %}
 

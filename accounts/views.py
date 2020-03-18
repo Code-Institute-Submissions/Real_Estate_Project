@@ -62,18 +62,19 @@ def registration(request):
 
         if registration_form.is_valid():
             registration_form.save()
-
+            
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password1'])
+            
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have successfully registered")
+                return redirect(reverse('add_property'))
+                
             else:
                 messages.error(request, "Unable to register your account at this time")
     else:
         registration_form = UserRegistrationForm()
-    return render(request, 'registration.html', {
-        "registration_form": registration_form})
+    return render(request, 'registration.html', {"registration_form": registration_form})
 
 
 def user_profile(request):
