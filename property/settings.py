@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'payment', 
     'listing',
     'search',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -149,23 +150,24 @@ AWS_ACCESS_KEY_ID = os.environ.get("AWS_SECRET_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-
-
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' 
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),)
 
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 
 # EXEMPLO:
@@ -180,6 +182,8 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
 
+
+'''
 # email configuration
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_USE_TSL = True
@@ -187,3 +191,4 @@ EMAIL_HOST = 'smtp.hotmail.com'
 EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_PORT = 587
+'''
