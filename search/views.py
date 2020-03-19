@@ -34,15 +34,23 @@ def search_all(request):
     max_price_query = None if request.GET.get('max_price') == 'Max Price' else request.GET.get('max_price')
     buy_rent_query = None if request.GET.get('buy_rent') == 'Buy or Rent' else request.GET.get('buy_rent')
      
-    # filtering the result as they want to find the specific product 
+    # filtering the result as they want to find the specific product
     if bedroom_query:
         listing = listing.filter(bedrooms=bedroom_query)
+    else:
+        return render(request, "no_search.html")
     if city_query:
         listing = listing.filter(city=city_query)
+    else:
+        return render(request, "no_search.html")
     if min_price_query:
         listing = listing.filter(price__gte=min_price_query)
+    else:
+        return render(request, "no_search.html")
     if max_price_query:
         listing = listing.filter(price__lte=max_price_query)
+    else:
+        return render(request, "no_search.html")
     if buy_rent_query:
         if buy_rent_query == 'buy':
             listing = listing.filter(buy=True)

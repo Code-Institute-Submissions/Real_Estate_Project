@@ -1,11 +1,55 @@
 body{
     font-family: 'Oxygen', sans-serif;
-    
+
+/*----------to work my footer at the bottom i shouls add this to the body-------*/
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
     color: #fff;
 }
+
+.footer {
+   margin-bottom: 0px;
+   width: 100%;
+   text-align: center;
+   margin-top: auto;
+}
+
+
+.foot {
+    background-color: #01082b;
+    color: #B89F57;
+    text-align: center;
+    margin: 0px;
+    padding-top: 15px;   
+    bottom: 0; 
+    position: relative;
+    margin-top: auto;
+}
+
+.footy {
+    font-size: 18px;
+    bottom: 0;
+}
+
+.ico {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color: #B89F57; 
+    margin-bottom: 10px;
+}
+
+.ico:hover {
+    background-color: #B89F57;
+    color: #fff;
+    border-radius: 50%;
+}
+
 /*----------------NAVBAR ------------------*/
 
 .topo {
@@ -86,8 +130,19 @@ a {
     padding: 0px;
 }
 
+/*----------LOGIN------------------*/
 
+.form-group {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.log {
+    margin-top: 20px;
+    
+}
 /*-----------SIGNUP.HTML -------------------*/
+
 
 .signup {
     text-align: center;
@@ -242,6 +297,23 @@ legend {
 
 
 
+/*--------password reset ---------*/
+
+div.container.signup.sig {
+    margin-bottom: 200px;
+}
+
+.pass, .pwd{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 31px;
+}
+
+/*------search--------*/
+
+.sear {
+    font-size: 55px;
+}
 
 /*------------EDIT DETAILS HTML PHOTO CAROUSEL ------------------*/
 
@@ -447,7 +519,7 @@ html, body {
 .pagination {
     text-align: center;
     margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     margin-top: 0px;
     font-size: 12px;
 

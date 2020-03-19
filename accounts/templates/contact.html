@@ -24,7 +24,7 @@
 		<div class="col-sm-12">
             <h1> Contact Form </h1>
 			<form onsubmit="return sendMail(this);">
-				{% csrf_token %}
+				
 				<input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required/>
 				<br>
                 <input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email" required/>

@@ -83,5 +83,6 @@ def user_profile(request):
     return render(request, 'profile.html', {"profile": user})
 
 
+
 def contact(request):
     return render(request, 'contact.html')

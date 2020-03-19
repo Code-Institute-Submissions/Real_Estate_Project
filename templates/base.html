@@ -22,6 +22,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+			<script type="text/javascript">
+				(function(){
+			      emailjs.init("user_cZv4u9dEB6SxvEL5zOUfP");
+			   })();
+			</script>
+
 </head>
 
 <body>
@@ -47,8 +54,8 @@
 					<a class="nav-item nav-link" href="{% url 'contact' %}">Contact Us</a> 
                     
 				</div>
-                <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link float-right" href="{% url 'login' %}">Login</a>
+                <div class="navbar-nav ml-auto" style="padding-left: 12px;">
+                    <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
 					<a class="nav-item nav-link" href="{% url 'signup' %}">Sign Up</a>        
 					{% endif %}
                 </div>
@@ -61,7 +68,25 @@
 	{% endblock %}
 
 
+<footer class="footer page-footer">
+	<div class="container-fluid foot">
+		<div class="row">
 
+				<div class="col-sm-6 footy">
+					<p>Copyright Marcus Colle <i class="fa fa-copyright"></i> 2020. All rights reserved</p>
+				</div>
+
+				<div class="col-sm-6 footy">
+                    <a href="#"><i class="fa fa-facebook ico"></i></a>
+					<a href="#"><i class="fa fa-instagram ico"></i></a>
+					<a href="#"><i class="fa fa-youtube ico"></i></a>
+                    <a href="#"><i class="fa fa-twitter ico"></i></a>
+					<a href="#"><i class="fa fa-pinterest-p ico"></i></a>
+				</div>
+		
+		</div>
+	</div>
+</footer>
 </body>
 
 
