@@ -93,31 +93,30 @@
 
         </div>
 
-		<div class="card-tex">
-			            <h5 class="desc">To View property location Clink on Map Address Button.</h5>
-			        </div>
+        <div class="card-tex">
+		    <h5 class="desc">To View property location Clink on Map Address Button.</h5>
+	    </div>
+
+        <div class="pac-card " id="pac-card">
+		    <div id="pac-container">
+		<!------   <input id="pac-input" type="submit" value="{{ listing.address }} {{ listing.city }} {{ listing.postcode }}"> ---->
+                <input id="pac-input" class="controls" type="text" placeholder="Search Box" value="{{ listing.address }} {{ listing.city }} {{ listing.postcode }}">
+            </div>
+	    </div>
+
+    
+	    <div id="map"></div>
+    
+	    <div id="infowindow-content">
+		    <img src="" width="10" height="10" id="place-icon">
+		    <span id="place-name"  class="title"></span><br>
+		    <span id="place-address"></span>
+	    </div>
+
+
+	<!-- Replace the value of the key parameter with your own API key. -->
+	    <script	src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places&callback=initMap" async defer></script>
 		
-		        <div class="pac-card " id="pac-card">
-			            <div id="pac-container">
-				        
-				<!------   <input id="pac-input" type="submit" value="{{ listing.address }} {{ listing.city }} {{ listing.postcode }}"> ---->
-				                <input id="pac-input" class="controls" type="text" placeholder="Search Box" value="{{ listing.address }} {{ listing.city }} {{ listing.postcode }}">
-		            </div>
-				        </div>
-		
-			    
-			        <div id="map"></div>
-			    
-			        <div id="infowindow-content">
-				            <img src="" width="10" height="10" id="place-icon">
-		            <span id="place-name"  class="title"></span><br>
-		            <span id="place-address"></span>
-				        </div>
-		
-			    
-			<!-- Replace the value of the key parameter with your own API key. -->
-			        
-			<script src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places&callback=initMap" async defer></script>
         </div>
     </div>
 </div>
