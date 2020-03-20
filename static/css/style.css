@@ -122,7 +122,15 @@ a {
    
     margin-top: 50px;
     margin-bottom: 30px; 
-    display: inline-flex;   
+    display: inline-flex; 
+    margin-left: 10px;  
+}
+
+@media (max-width: 767px) {
+    .card-deck {
+       margin-left: 0px; 
+
+    }
 }
 
 .card{
