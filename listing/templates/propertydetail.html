@@ -93,30 +93,18 @@
 
         </div>
 
-        <div class="card-tex">
-		    <h5 class="desc">To View property location Clink on Map Address Button.</h5>
-	    </div>
+		<div id="map"></div>
 
-        <div class="pac-card " id="pac-card">
-		    <div id="pac-container">
-			    <input id="pac-input" type="submit" value="{{ listing.address }} {{ listing.city }} {{ listing.postcode }}">
-            </div>
-	    </div>
-
-    
-	    <div id="map"></div>
-    
-	    <div id="infowindow-content">
-		    <img src="" width="10" height="10" id="place-icon">
-		    <span id="place-name"  class="title"></span><br>
-		    <span id="place-address"></span>
-	    </div>
-
-
-	<!-- Replace the value of the key parameter with your own API key. -->
-	    <script	src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places&callback=initMap" async defer></script>
-
-
+		<script>
+		    let propertyLat = {{property.lat}}
+		    let propertyLng = {{property.lng}}
+		</script>
+		<script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+		<!-- Replace the value of the key parameter with your own API key. -->
+		<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&callback=initMap">
+		</script>
+        		
         </div>
     </div>
 </div>

@@ -28,6 +28,8 @@ class Listing(models.Model):
     description = models.TextField(max_length=1000)
     # time Posted time.zone
     published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
+    lat = models.CharField(max_length=20, default="Latitude")
+    lng = models.CharField(max_length=20, default="Longitude")
 
     user = models.ForeignKey(User)
 
