@@ -8,6 +8,7 @@ from django.core.paginator import Paginator
 def buy_search(request):
     
     listing = Listing.objects.filter(buy=True)
+    
     paginator = Paginator(listing, 6)
     page = request.GET.get('page', 1) 
     listing = paginator.page(page)
@@ -54,6 +55,9 @@ def search_all(request):
         if buy_rent_query == 'rent':
             listing = listing.filter(rent=True)
     
+    if len(listing) == 0:
+        return render(request, "no_search.html")
+
     paginator = Paginator(listing, 6)
     page = request.GET.get('page', 1) 
     listing = paginator.page(page)
