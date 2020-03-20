@@ -11,7 +11,6 @@ function sendMail(contactForm) {
         },
         function(error) {
             console.log("FAILED", error);
-        }
-    );
-   return true;    // block from loading a new page
+        });
+   
 }
