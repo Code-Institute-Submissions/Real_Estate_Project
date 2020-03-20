@@ -168,7 +168,15 @@ DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-
+'''
+So if you look at your settings.py file the MEDIA_URL basically constructs 
+the first part of a url that directs to the S3 url that contains the media foler:
+then the property.photos renders the file name,
+so:
+"{{ MEDIA_URL }}{{ property.photos }}"
+will render as something like:
+https://goldenestates.s3.amazonaws.com/media/img/house-01-1.jpg
+'''
 
 # EXEMPLO:
 # STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE')

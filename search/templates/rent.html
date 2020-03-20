@@ -108,7 +108,7 @@
 			{% for property in listing %}
 			<div class="card-deck col-sm-12 col-md-6 col-lg-4 col-xl-4">
 				<div class="card">
-					<img src="/media/{{ property.photos }}" class="card-img-top" alt="Card image cap" />
+					<img src="{{ MEDIA_URL }}{{ property.photos }}" class="card-img-top" alt="Card image cap" />
 					<div class="card-body col-sm-12 description">
 						<div class="card-text">
 							<p>{{ property.title }}</p>

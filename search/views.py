@@ -35,6 +35,7 @@ def search_all(request):
     buy_rent_query = None if request.GET.get('buy_rent') == 'Buy or Rent' else request.GET.get('buy_rent')
      
     # filtering the result as they want to find the specific product
+  
     if bedroom_query:
         listing = listing.filter(bedrooms=bedroom_query)
    
@@ -56,5 +57,8 @@ def search_all(request):
     paginator = Paginator(listing, 6)
     page = request.GET.get('page', 1) 
     listing = paginator.page(page)
-        
+
     return render(request, "search.html", {"listing": listing})
+
+  #  else:
+  #       return render(request, "no_search.html")
