@@ -93,8 +93,14 @@ AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend', 'account
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
-
+'''
 if "DATABASE_URL" in os.environ:
     DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 else:
@@ -104,7 +110,7 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -191,7 +197,6 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
 
 
-'''
 # email configuration
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_USE_TSL = True
@@ -199,4 +204,3 @@ EMAIL_HOST = 'smtp.hotmail.com'
 EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_PORT = 587
-'''
