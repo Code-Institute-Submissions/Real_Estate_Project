@@ -141,7 +141,7 @@ a {
 .card-img-top {
     flex-shrink: 0;
     width: 100%;
-    height: 50%;
+    height: 210px;
 }
 
 /*----------LOGIN------------------*/
@@ -332,15 +332,6 @@ div.container.signup.sig {
 
 .sear {
     font-size: 55px;
-}
-
-
-
-/*---------ADD PROPERTY----------------*/
-
-input#id_photos.form-control {
-    height: 1px;
-    padding: 1px;
 }
 
 
