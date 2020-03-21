@@ -138,6 +138,12 @@ a {
     padding: 0px;
 }
 
+.card-img-top {
+    flex-shrink: 0;
+    width: 100%;
+    height: 50%;
+}
+
 /*----------LOGIN------------------*/
 
 .form-group {
@@ -148,6 +154,11 @@ a {
 .log {
     margin-top: 20px;
     
+}
+
+.form-control {
+    height: auto;
+
 }
 /*-----------SIGNUP.HTML -------------------*/
 
@@ -322,6 +333,16 @@ div.container.signup.sig {
 .sear {
     font-size: 55px;
 }
+
+
+
+/*---------ADD PROPERTY----------------*/
+
+input#id_photos.form-control {
+    height: 1px;
+    padding: 1px;
+}
+
 
 /*------------EDIT DETAILS HTML PHOTO CAROUSEL ------------------*/
 
