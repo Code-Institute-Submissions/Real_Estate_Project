@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 
 def buy_search(request):
     
-    listing = Listing.objects.filter(buy=True)
+    listing = Listing.objects.filter(sale=True)
     
     paginator = Paginator(listing, 6)
     page = request.GET.get('page', 1) 
@@ -51,7 +51,7 @@ def search_all(request):
 
     if buy_rent_query:
         if buy_rent_query == 'buy':
-            listing = listing.filter(buy=True)
+            listing = listing.filter(sale=True)
         if buy_rent_query == 'rent':
             listing = listing.filter(rent=True)
     

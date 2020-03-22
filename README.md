@@ -58,6 +58,8 @@ http://haintheme.com/demo/html/realand/index.html
     - find a way to user not jump to register without a payment
     - Add more details about agencies
     - Add a reference number in each property to be esier to agecy locate the specific property when emailed or called
+    - A map with all properties locations
+    - More filter such as House or Flat, Order by ... 
     
 
 ### Technologies Used

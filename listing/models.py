@@ -9,7 +9,7 @@ class Listing(models.Model):
     bool = ((True, 'Yes'), (False, 'No'))
         
     title = models.CharField(max_length=50)
-    buy = models.BooleanField(choices=bool)
+    sale = models.BooleanField(choices=bool)
     rent = models.BooleanField(choices=bool)    
     price = models.IntegerField()
     address = models.CharField(max_length=100)
