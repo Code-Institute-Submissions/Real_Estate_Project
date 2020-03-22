@@ -30,9 +30,9 @@ def view_property(request):
     listing = Listing.objects.filter(user=request.user).order_by('-published_date')
     template = 'viewlisting.html'
 
-    paginator = Paginator(lists, 6)
+    paginator = Paginator(listing, 6)
     page = request.GET.get('page', 1) 
-    lists = paginator.page(page)
+    listing = paginator.page(page)
 
     return render(request, template, {'listing': listing, 'user': user})
 
