@@ -3,7 +3,7 @@
 Golden Estate is an website for estate agencies where they can display their contents making esier 
 to users find their properties in one place insted search for a single agency website at time.
 
-As users can find all they are looking for in a single place would become more dificult to reach
+As users can find all kind of properties they are looking for in a single place would become more dificult to reach
 all agencies website to search for properties. So based on this principle for a estate agency
 would be a great value to display their properties inside Golden Estate and get more chances to be seen 
 by users.
@@ -93,8 +93,8 @@ http://haintheme.com/demo/html/realand/index.html
 This website has been tested in three ways, as this project runs in Django the framework itself already have some internal tests in order to make
 your codes run, also i have made couple tests using Coverage wich is a good way to make UnitTest in Python/Django framework. It shows the developer
 the percentage of what has been tested and what part of your code you may need to test, I've done around 62% of this project tests.
-The main test was made manually in the website testing every functionality, beacuse even if you to 100% of Coverage test it doesn't mean your project
-on crash but it means you have a very small probability to crash.
+The main test was made manually in the website testing every functionality because as a developer i know this kind of website need a lot 
+assistence so some codes might change.
 
     1 - Main page you can access all the links and signup to site as well, view all the properties listed but 6 each page.
     2 - Property details works well and display everythin proposed
@@ -135,6 +135,9 @@ Another blue button should appear to click: *Open Browser*.
 To run a backend Python file, type `python3 manage.py runserver`
 A blue button should appear to click: *Expose*,
 Another blue button should appear to click: *Open Browser*.
+
+To view my project deployed click on the link below:
+https://golden-estate.herokuapp.com/
 
 
 
