@@ -151,7 +151,7 @@ https://golden-estate.herokuapp.com/
         - Making this website made me feel a bit work of what can be a work enviroment and gave me more passion about code 
           specialy when you see results, even if what you have done its not as perfect as expected, but im sure the challenge
           during the project as fix some bugs, get stucked in the code and find a solution make me passionate and excited about code.
-
+        - I would like to give code institute credits to help me with this project, some codes where taken from lessons given.
            
 
 
